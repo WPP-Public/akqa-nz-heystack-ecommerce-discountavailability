@@ -1,0 +1,3 @@
+Injector:
+  AvailabilityExtension:
+    LocaleService: %$heystack.locale_service
