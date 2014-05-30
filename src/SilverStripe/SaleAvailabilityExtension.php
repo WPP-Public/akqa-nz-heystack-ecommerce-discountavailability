@@ -8,9 +8,17 @@ namespace Heystack\Availability\SilverStripe;
 class SaleAvailabilityExtension extends \DataExtension
 {
     /**
-     * @var array
+     * @param $class
+     * @param $extension
+     * @param $args
+     * @return array
      */
-    private static $many_many = array(
-        'SaleAvailabilityZones' => 'Heystack\Zoning\Zone'
-    );
+    public static function get_extra_config($class, $extension, $args)
+    {
+        return [
+            'many_many' => [
+                'SaleAvailabilityZones' => 'Heystack\\Zoning\\Zone'
+            ]
+        ];
+    }
 } 
