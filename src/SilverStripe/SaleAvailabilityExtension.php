@@ -17,7 +17,7 @@ class SaleAvailabilityExtension extends \DataExtension
     {
         return [
             'many_many' => [
-                'SaleAvailabilityZones' => 'Heystack\\Zoning\\Zone'
+                'SaleAvailabilityZones' => 'Heystack\\DB\\Zone'
             ]
         ];
     }
