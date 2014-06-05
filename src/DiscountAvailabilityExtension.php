@@ -1,11 +1,13 @@
 <?php
 
-namespace Heystack\Availability\SilverStripe;
+namespace Heystack\Availability;
+
+use DataExtension;
 
 /**
- * @package Heystack\Availability\SilverStripe
+ * @package Heystack\Availability
  */
-class SaleAvailabilityExtension extends \DataExtension
+class DiscountAvailabilityExtension extends DataExtension
 {
     /**
      * @param $class
@@ -17,8 +19,8 @@ class SaleAvailabilityExtension extends \DataExtension
     {
         return [
             'many_many' => [
-                'SaleAvailabilityZones' => 'Heystack\\DB\\Zone'
+                'DiscountAvailabilityZones' => 'Heystack\\DB\\Zone'
             ]
         ];
     }
-} 
+}

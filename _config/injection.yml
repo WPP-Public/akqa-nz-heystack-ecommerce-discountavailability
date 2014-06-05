@@ -1,4 +1,4 @@
 Injector:
-  Heystack\Availability\SilverStripe\SaleAvailabilityExtension:
+  Heystack\Availability\DiscountAvailabilityExtension:
     properties:
       ZoneService: %$heystack.zone_service

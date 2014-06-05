@@ -1,23 +1,24 @@
 <?php
 
-namespace Heystack\Availability\SilverStripe;
+namespace Heystack\Availability;
 
 use Heystack\Core\Exception\ConfigurationException;
 use Heystack\Ecommerce\Locale\Interfaces\ZoneServiceInterface;
 use Heystack\Ecommerce\Locale\Traits\HasZoneServiceTrait;
+use DataObject;
 
 /**
- * @package Heystack\Availability\SilverStripe
+ * @package Heystack\Availability
  */
-trait SaleAvailabilityTrait
+trait DiscountAvailabilityTrait
 {
     /**
      * @return bool
      * @throws \Heystack\Core\Exception\ConfigurationException
      */
-    public function isSaleAvailable()
+    public function isDiscountAvailable()
     {
-        if (!$this instanceof \DataObject) {
+        if (!$this instanceof DataObject) {
             throw new ConfigurationException(
                 sprintf(
                     "'%s' is not an instance of DataObject",
@@ -25,19 +26,21 @@ trait SaleAvailabilityTrait
                 )
             );
         }
+        
+        $zoneService = $this->getZoneService();
 
-        if (!$this->zoneService instanceof ZoneServiceInterface) {
+        if (!$zoneService instanceof ZoneServiceInterface) {
             throw new ConfigurationException(
                 sprintf(
-                    "%s::isSaleAvailable expected to have a zone service but not was set on trait",
+                    "%s::isDiscountAvailable expected to have a zone service but not was set on trait",
                     __CLASS__
                 )
             );
         }
 
         return array_key_exists(
-            $this->zoneService->getActiveZone()->getName(),
-            $this->SaleAvailabilityZones()->column('Name')
+            $zoneService->getActiveZone()->getName(),
+            $this->DiscountAvailabilityZones()->column('Name')
         );
     }
 
