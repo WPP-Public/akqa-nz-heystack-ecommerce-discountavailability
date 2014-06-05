@@ -38,7 +38,7 @@ trait DiscountAvailabilityTrait
             );
         }
 
-        return array_key_exists(
+        return in_array(
             $zoneService->getActiveZone()->getName(),
             $this->DiscountAvailabilityZones()->column('Name')
         );
