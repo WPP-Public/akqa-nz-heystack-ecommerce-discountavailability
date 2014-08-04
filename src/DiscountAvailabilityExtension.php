@@ -10,9 +10,9 @@ use DataExtension;
 class DiscountAvailabilityExtension extends DataExtension
 {
     /**
-     * @param $class
-     * @param $extension
-     * @param $args
+     * @param string $class
+     * @param string $extension
+     * @param array $args
      * @return array
      */
     public static function get_extra_config($class, $extension, $args)
